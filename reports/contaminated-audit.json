@@ -1,0 +1,106 @@
+{
+  "version": "split-policy-v1",
+  "status": "fail",
+  "records": 90,
+  "split_counts": {
+    "test": 30,
+    "train": 40,
+    "validation": 20
+  },
+  "counts": {
+    "group_cross_split": 2,
+    "near_text_cross_split": 1,
+    "normalized_text_cross_split": 2,
+    "outside_time_window": 1,
+    "review": 1,
+    "violation": 5
+  },
+  "findings": [
+    {
+      "kind": "outside_time_window",
+      "severity": "violation",
+      "row_ids": [
+        "test-03"
+      ],
+      "split": "test",
+      "event_at": "2025-01-05T12:00:00Z",
+      "window": [
+        "2025-03-01T00:00:00Z",
+        "2025-04-01T00:00:00Z"
+      ]
+    },
+    {
+      "kind": "group_cross_split",
+      "severity": "violation",
+      "row_ids": [
+        "test-01",
+        "train-01"
+      ],
+      "field": "entity_id",
+      "group_value_sha256": "4965652508766333f45e5eaf3d61acfcbd9098ff78e6017cf482b028e7b5ec9b",
+      "splits": [
+        "test",
+        "train"
+      ]
+    },
+    {
+      "kind": "group_cross_split",
+      "severity": "violation",
+      "row_ids": [
+        "test-02",
+        "train-02"
+      ],
+      "field": "source_group",
+      "group_value_sha256": "2745513feffa31d821c2c86ef085bc3b481f5d9c27b484d8fcfdceeeea192ec7",
+      "splits": [
+        "test",
+        "train"
+      ]
+    },
+    {
+      "kind": "normalized_text_cross_split",
+      "severity": "violation",
+      "row_ids": [
+        "test-00",
+        "train-00"
+      ],
+      "splits": [
+        "test",
+        "train"
+      ],
+      "normalized_text_sha256": "22cc4010b39d9df5c9e3a78817974ba2a6119f2e1e70f16e6609342c691adab0"
+    },
+    {
+      "kind": "near_text_cross_split",
+      "severity": "review",
+      "row_ids": [
+        "test-04",
+        "train-04"
+      ],
+      "splits": [
+        "test",
+        "train"
+      ],
+      "token_jaccard": 0.8823529411764706
+    },
+    {
+      "kind": "normalized_text_cross_split",
+      "severity": "violation",
+      "row_ids": [
+        "test-05",
+        "validation-00"
+      ],
+      "splits": [
+        "test",
+        "validation"
+      ],
+      "normalized_text_sha256": "978e4f07a03835d155492cb0fcb0df2804fd57d44a6e1a3cd97082860913858f"
+    }
+  ],
+  "findings_truncated": false,
+  "cross_split_text_pairs_compared": 2600,
+  "input_sha256": "25b5803a4bea3f3240e53261f0d1697125cf3de214b4a3a1284e64aa86aa7d57",
+  "policy_sha256": "105f23aa9d0d081cbf12e67dbd1725386b8eb8a7b8f13de6c861c3ebd85719f4",
+  "auditor_sha256": "53114246d68a15beb333ffde0d778e9eb59fb5a8b022674fe5c8ac775c170322",
+  "scope": "Violations of caller-declared split policy; near-text similarity requires human review. No semantic duplicate, label correctness or general leakage guarantee."
+}

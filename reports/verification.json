@@ -1,0 +1,60 @@
+{
+  "scope": "Original synthetic split-policy scenarios; not model accuracy or an independent leakage benchmark",
+  "tests_run": 12,
+  "tests_passed": true,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "scenarios": {
+    "clean": {
+      "status": "pass",
+      "records": 90,
+      "counts": {},
+      "input_sha256": "4ec42b7fe5550fdda9872a30ff7b29393a05551901d0327fa33567bb522b8780"
+    },
+    "contaminated": {
+      "status": "fail",
+      "records": 90,
+      "counts": {
+        "group_cross_split": 2,
+        "near_text_cross_split": 1,
+        "normalized_text_cross_split": 2,
+        "outside_time_window": 1,
+        "review": 1,
+        "violation": 5
+      },
+      "input_sha256": "25b5803a4bea3f3240e53261f0d1697125cf3de214b4a3a1284e64aa86aa7d57"
+    },
+    "near_only": {
+      "status": "review",
+      "records": 90,
+      "counts": {
+        "near_text_cross_split": 1,
+        "review": 1
+      },
+      "input_sha256": "8a423e51ea7b82795d54af50ea6589bc9303c30a1e2ea64a131f6de7a08493a9"
+    }
+  },
+  "snapshot_reconstruction": {
+    "clean": {
+      "snapshot_id": "46aa8b0e6072cd74180e5a45ed3b0742d5e81520bbec624f15f2898737801f88",
+      "logical_report_matches": true,
+      "status": "pass"
+    },
+    "contaminated": {
+      "snapshot_id": "fea0dd4875e6f601d761a29a24d39aee76c636937905564097a5e20fa45be2a7",
+      "logical_report_matches": true,
+      "status": "fail"
+    },
+    "near_only": {
+      "snapshot_id": "3f6e223069741f9e9a41c4261dbca28b01b0de1f8f7d3d0c43b255e30f8ce15c",
+      "logical_report_matches": true,
+      "status": "review"
+    }
+  },
+  "source_sha256": {
+    "audit.py": "53114246d68a15beb333ffde0d778e9eb59fb5a8b022674fe5c8ac775c170322",
+    "snapshot.py": "d3f57a0a9346d926e2bcfc04b8fd050519a9465ed6e26e993eef2fd1a185fc4d",
+    "fixtures.py": "a1552113834810309bb216cab4e4fb12066d65e9718278a05b4847e5bfd27826",
+    "pipeline.py": "53a9a5863016cb1b9fddad791b5ed23710491415181d6dfffde046afd7b6d527"
+  }
+}
